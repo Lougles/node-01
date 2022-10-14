@@ -15,7 +15,11 @@ const {
   addContact,
   getContactById,
   removeContact,
-  listContacts
+  listContacts,
+  listContactsSync,
+  getContactByIdSync,
+  removeContactSync,
+  addContactSync
 } = require('./contacts');
 
 
@@ -37,6 +41,21 @@ function invokeAction({ action, id, name, email, phone }) {
     case "remove":
       removeContact(id)
       break;
+    
+    case "listsync":
+      listContactsSync();
+      break;
+    case "getsync":
+      getContactByIdSync(id)
+    break;
+
+    case "addsync":
+      addContactSync(name, email, phone)
+    break;
+
+    case "removeSync":
+      removeContactSync(id)
+    break;
 
     default:
       console.warn("\x1B[31m Unknown action type!");
